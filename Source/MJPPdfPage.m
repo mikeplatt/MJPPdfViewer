@@ -7,14 +7,14 @@
 //
 
 #import "MJPPdfPage.h"
-#import "MJPPdfTiledView.h"
+#import "MJPPdfView.h"
 
 static const CGFloat PDFViewerMargin = 20.0;
 
 @interface MJPPdfPage ()
 
-@property (strong, nonatomic) MJPPdfTiledView *tiledView;
-@property (strong, nonatomic) MJPPdfTiledView *oldView;
+@property (strong, nonatomic) MJPPdfView *tiledView;
+@property (strong, nonatomic) MJPPdfView *oldView;
 @property (assign, nonatomic) CGFloat scale;
 
 
@@ -71,12 +71,12 @@ static const CGFloat PDFViewerMargin = 20.0;
     CGFloat theX = (yScale > xScale) ? PDFViewerMargin : (self.frame.size.width - theWidth) / 2;
     CGFloat theY = (yScale > xScale) ? (self.frame.size.height - theHeight) / 2 : PDFViewerMargin;
     
-    _tiledView = [[MJPPdfTiledView alloc] initWithFrame:CGRectMake(theX, theY, theWidth, theHeight) andScale:_scale];
+    _tiledView = [[MJPPdfView alloc] initWithFrame:CGRectMake(theX, theY, theWidth, theHeight) andScale:_scale];
     _tiledView.pdfPage = _page;
     _tiledView.contentScaleFactor = 1.0;
     [self addSubview:_tiledView];
     
-    self.contentSize = CGSizeMake(self.frame.size.width + PDFViewerMargin, self.frame.size.height + PDFViewerMargin);
+    self.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
     
     [_oldView removeFromSuperview];
     _oldView = nil;
