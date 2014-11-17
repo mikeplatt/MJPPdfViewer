@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A816D201A1A0A01007E57B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D1F1A1A0A01007E57B3 /* main.m */; };
+		4A816D231A1A0A01007E57B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D221A1A0A01007E57B3 /* AppDelegate.m */; };
+		4A816D261A1A0A01007E57B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D251A1A0A01007E57B3 /* ViewController.m */; };
+		4A816D291A1A0A01007E57B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D271A1A0A01007E57B3 /* Main.storyboard */; };
+		4A816D2B1A1A0A02007E57B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D2A1A1A0A01007E57B3 /* Images.xcassets */; };
+		4A816D2E1A1A0A02007E57B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D2C1A1A0A02007E57B3 /* LaunchScreen.xib */; };
+		4A816D4A1A1A0CF3007E57B3 /* MJPPdfPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D451A1A0CF3007E57B3 /* MJPPdfPage.m */; };
+		4A816D4B1A1A0CF3007E57B3 /* MJPPdfTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D471A1A0CF3007E57B3 /* MJPPdfTiledView.m */; };
+		4A816D4C1A1A0CF3007E57B3 /* MJPPdfViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D491A1A0CF3007E57B3 /* MJPPdfViewer.m */; };
+		4A816D511A1A10FE007E57B3 /* A4-landscape.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */; };
+		4A816D521A1A10FE007E57B3 /* A4-portrait.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */; };
+		4A816D531A1A10FE007E57B3 /* square.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D501A1A10FE007E57B3 /* square.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A816D1A1A1A0A01007E57B3 /* MJPPdfViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJPPdfViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A816D1E1A1A0A01007E57B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A816D1F1A1A0A01007E57B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A816D211A1A0A01007E57B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A816D221A1A0A01007E57B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A816D241A1A0A01007E57B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4A816D251A1A0A01007E57B3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4A816D281A1A0A01007E57B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A816D2A1A1A0A01007E57B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A816D2D1A1A0A02007E57B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4A816D441A1A0CF3007E57B3 /* MJPPdfPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPPdfPage.h; path = Source/MJPPdfPage.h; sourceTree = SOURCE_ROOT; };
+		4A816D451A1A0CF3007E57B3 /* MJPPdfPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPPdfPage.m; path = Source/MJPPdfPage.m; sourceTree = SOURCE_ROOT; };
+		4A816D461A1A0CF3007E57B3 /* MJPPdfTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPPdfTiledView.h; path = Source/MJPPdfTiledView.h; sourceTree = SOURCE_ROOT; };
+		4A816D471A1A0CF3007E57B3 /* MJPPdfTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPPdfTiledView.m; path = Source/MJPPdfTiledView.m; sourceTree = SOURCE_ROOT; };
+		4A816D481A1A0CF3007E57B3 /* MJPPdfViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPPdfViewer.h; path = Source/MJPPdfViewer.h; sourceTree = SOURCE_ROOT; };
+		4A816D491A1A0CF3007E57B3 /* MJPPdfViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPPdfViewer.m; path = Source/MJPPdfViewer.m; sourceTree = SOURCE_ROOT; };
+		4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "A4-landscape.pdf"; path = "PDFs/A4-landscape.pdf"; sourceTree = "<group>"; };
+		4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "A4-portrait.pdf"; path = "PDFs/A4-portrait.pdf"; sourceTree = "<group>"; };
+		4A816D501A1A10FE007E57B3 /* square.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = square.pdf; path = PDFs/square.pdf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A816D171A1A0A01007E57B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A816D111A1A0A01007E57B3 = {
+			isa = PBXGroup;
+			children = (
+				4A816D1C1A1A0A01007E57B3 /* MJPPdfViewer */,
+				4A816D1B1A1A0A01007E57B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A816D1B1A1A0A01007E57B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A816D1A1A1A0A01007E57B3 /* MJPPdfViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A816D1C1A1A0A01007E57B3 /* MJPPdfViewer */ = {
+			isa = PBXGroup;
+			children = (
+				4A816D431A1A0A27007E57B3 /* MJPPdfViewer */,
+				4A816D211A1A0A01007E57B3 /* AppDelegate.h */,
+				4A816D221A1A0A01007E57B3 /* AppDelegate.m */,
+				4A816D241A1A0A01007E57B3 /* ViewController.h */,
+				4A816D251A1A0A01007E57B3 /* ViewController.m */,
+				4A816D271A1A0A01007E57B3 /* Main.storyboard */,
+				4A816D2A1A1A0A01007E57B3 /* Images.xcassets */,
+				4A816D2C1A1A0A02007E57B3 /* LaunchScreen.xib */,
+				4A816D4D1A1A0E0F007E57B3 /* PDFs */,
+				4A816D1D1A1A0A01007E57B3 /* Supporting Files */,
+			);
+			path = MJPPdfViewer;
+			sourceTree = "<group>";
+		};
+		4A816D1D1A1A0A01007E57B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A816D1E1A1A0A01007E57B3 /* Info.plist */,
+				4A816D1F1A1A0A01007E57B3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A816D431A1A0A27007E57B3 /* MJPPdfViewer */ = {
+			isa = PBXGroup;
+			children = (
+				4A816D481A1A0CF3007E57B3 /* MJPPdfViewer.h */,
+				4A816D491A1A0CF3007E57B3 /* MJPPdfViewer.m */,
+				4A816D441A1A0CF3007E57B3 /* MJPPdfPage.h */,
+				4A816D451A1A0CF3007E57B3 /* MJPPdfPage.m */,
+				4A816D461A1A0CF3007E57B3 /* MJPPdfTiledView.h */,
+				4A816D471A1A0CF3007E57B3 /* MJPPdfTiledView.m */,
+			);
+			name = MJPPdfViewer;
+			sourceTree = "<group>";
+		};
+		4A816D4D1A1A0E0F007E57B3 /* PDFs */ = {
+			isa = PBXGroup;
+			children = (
+				4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */,
+				4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */,
+				4A816D501A1A10FE007E57B3 /* square.pdf */,
+			);
+			name = PDFs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A816D191A1A0A01007E57B3 /* MJPPdfViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A816D3D1A1A0A02007E57B3 /* Build configuration list for PBXNativeTarget "MJPPdfViewer" */;
+			buildPhases = (
+				4A816D161A1A0A01007E57B3 /* Sources */,
+				4A816D171A1A0A01007E57B3 /* Frameworks */,
+				4A816D181A1A0A01007E57B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MJPPdfViewer;
+			productName = MJPPdfViewer;
+			productReference = 4A816D1A1A1A0A01007E57B3 /* MJPPdfViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A816D121A1A0A01007E57B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = RABFAP;
+				TargetAttributes = {
+					4A816D191A1A0A01007E57B3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 4A816D151A1A0A01007E57B3 /* Build configuration list for PBXProject "MJPPdfViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A816D111A1A0A01007E57B3;
+			productRefGroup = 4A816D1B1A1A0A01007E57B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A816D191A1A0A01007E57B3 /* MJPPdfViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A816D181A1A0A01007E57B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A816D291A1A0A01007E57B3 /* Main.storyboard in Resources */,
+				4A816D531A1A10FE007E57B3 /* square.pdf in Resources */,
+				4A816D511A1A10FE007E57B3 /* A4-landscape.pdf in Resources */,
+				4A816D2E1A1A0A02007E57B3 /* LaunchScreen.xib in Resources */,
+				4A816D2B1A1A0A02007E57B3 /* Images.xcassets in Resources */,
+				4A816D521A1A10FE007E57B3 /* A4-portrait.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A816D161A1A0A01007E57B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A816D261A1A0A01007E57B3 /* ViewController.m in Sources */,
+				4A816D4A1A1A0CF3007E57B3 /* MJPPdfPage.m in Sources */,
+				4A816D231A1A0A01007E57B3 /* AppDelegate.m in Sources */,
+				4A816D4B1A1A0CF3007E57B3 /* MJPPdfTiledView.m in Sources */,
+				4A816D4C1A1A0CF3007E57B3 /* MJPPdfViewer.m in Sources */,
+				4A816D201A1A0A01007E57B3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A816D271A1A0A01007E57B3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A816D281A1A0A01007E57B3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4A816D2C1A1A0A02007E57B3 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A816D2D1A1A0A02007E57B3 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A816D3B1A1A0A02007E57B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A816D3C1A1A0A02007E57B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A816D3E1A1A0A02007E57B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MJPPdfViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4A816D3F1A1A0A02007E57B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MJPPdfViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A816D151A1A0A01007E57B3 /* Build configuration list for PBXProject "MJPPdfViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A816D3B1A1A0A02007E57B3 /* Debug */,
+				4A816D3C1A1A0A02007E57B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A816D3D1A1A0A02007E57B3 /* Build configuration list for PBXNativeTarget "MJPPdfViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A816D3E1A1A0A02007E57B3 /* Debug */,
+				4A816D3F1A1A0A02007E57B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A816D121A1A0A01007E57B3 /* Project object */;
+}
