@@ -16,6 +16,5 @@
 @property (assign, nonatomic) NSInteger pageNumber;
 
 - (instancetype)initWithFrame:(CGRect)frame andPage:(CGPDFPageRef)page andPageNumber:(NSInteger)pageNumber;
-- (void)updateTiledView;
 
 @end

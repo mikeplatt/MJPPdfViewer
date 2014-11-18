@@ -32,7 +32,7 @@
             path = @"A4-landscape.pdf";
             break;
         case 1:
-            path = @"A4-portrait.pdf";
+            path = @"real.pdf";
             break;
         case 2:
             path = @"square.pdf";
@@ -41,7 +41,7 @@
             break;
     }
     
-    MJPPdfViewer *pdfViewer = [[MJPPdfViewer alloc] initWithPath:path];
+    MJPPdfViewer *pdfViewer = [[MJPPdfViewer alloc] initWithPath:path andPage:sender.tag + 1];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pdfViewer];
     [self presentViewController:navigationController animated:YES completion:nil];
 }

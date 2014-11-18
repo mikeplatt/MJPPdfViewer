@@ -11,7 +11,8 @@
 @interface MJPPdfViewer : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) NSString *path;
+@property (assign, nonatomic) NSInteger page;
 
-- (instancetype)initWithPath:(NSString *)path;
+- (instancetype)initWithPath:(NSString *)path andPage:(NSInteger)page;
 
 @end
