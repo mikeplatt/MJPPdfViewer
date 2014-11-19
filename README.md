@@ -24,15 +24,15 @@
 
 
 ## Standard Features
-• `path` (NSString) *Required* Local file name with extension<br>
-• `page` (NSInteger) *Required* Page to open the PDF on<br>
+• `fileName` (NSString) !Required! Local file name with extension<br>
+• `page` (NSInteger) Page to open the PDF on<br>
 • `margin` (CGFloat - Default: 20.0) Minimum margin between view edge and page edge<br>
 • `showDoneButton` (BOOL - Default: YES) Creates UIBarButtonItem "Done" that dismisses the viewer<br>
 
 ## Code Example
 ```objective-c
 MJPPdfViewer *pdfViewer = [[MJPPdfViewer alloc] init];
-pdfViewer.path = path;
+pdfViewer.fileName = @"LocalPdfFile.pdf";
 pdfViewer.page = 10;
 pdfViewer.margin = 10.0;
 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pdfViewer];
