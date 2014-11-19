@@ -5,9 +5,6 @@
 
 `MJPPdfViewer` is a simple iOS PDF viewer currently optimised to view locally stored PDF files. 
 
-/*![screenshot] (https://github.com/mikeplatt/MJPSlider/blob/master/screenshot.png)*/
-
-
 ## Installation
  
  `MJPPdfViewer` is available through [CocoaPods](http://cocoapods.org/?q=MJPPdfViewer). To install it, simply add the following line to your Podfile:
@@ -27,10 +24,10 @@
 
 
 ## Standard Features
-• `path` NSString <br>
-• `page`<br>
-• `margin`<br>
-• `showDoneButton`<br>
+• `path` (NSString) Local file name with extension<br>
+• `page` (NSInteger) Page to open the PDF on<br>
+• `margin` (CGFloat) Minimum margin between view edge and page edge<br>
+• `showDoneButton` (BOOL) Creates UIBarButtonItem "Done" that dismisses the viewer<br>
 
 ## Code Example
 ```objective-c
@@ -41,5 +38,3 @@ pdfViewer.margin = 10.0;
 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pdfViewer];
 [self presentViewController:navigationController animated:YES completion:nil];
 ```
-
-
