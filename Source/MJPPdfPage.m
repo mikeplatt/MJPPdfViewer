@@ -9,7 +9,7 @@
 #import "MJPPdfPage.h"
 #import "MJPPdfView.h"
 
-static const CGFloat MJPPdfViewerMargin = 20.0;
+static const CGFloat MJPPdfViewerMargin = 10.0;
 
 @interface MJPPdfPage ()
 
@@ -36,8 +36,9 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
 - (instancetype)initWithFrame:(CGRect)frame andPage:(CGPDFPageRef)page andPageNumber:(NSInteger)pageNumber {
     self = [super initWithFrame:frame];
     if(self) {
-        self.backgroundColor = [UIColor redColor];
         self.delegate = self;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
         self.minimumZoomScale = 1.0;
         self.maximumZoomScale = 5.0;
         self.pageNumber = pageNumber;
@@ -46,14 +47,11 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
     return self;
 }
 
-- (void)layoutSubviews {
-    if(!_stopUpdate) {
-        [self updateView];
-    }
-    [super layoutSubviews];
-}
-
 - (void)updateView {
+    
+    if(self.zoomScale > 1.0) {
+        [self resetZoom];
+    }
     
     CGRect pageRect = CGPDFPageGetBoxRect(_page, kCGPDFMediaBox);
     
@@ -63,7 +61,6 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
     CGFloat xScale = frameWidth / pageRect.size.width;
     CGFloat yScale = frameHeight / pageRect.size.height;
     _scale = MIN( xScale, yScale );
-    _currentScale = _scale;
     
     CGFloat theWidth = (yScale > xScale) ? frameWidth : (pageRect.size.width * _scale);
     CGFloat theHeight = (yScale > xScale) ? (pageRect.size.height * _scale) : frameHeight;
@@ -71,19 +68,13 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
     _currentX = (yScale > xScale) ? MJPPdfViewerMargin : (self.frame.size.width - theWidth) / 2;
     _currentY = (yScale > xScale) ? (self.frame.size.height - theHeight) / 2 : MJPPdfViewerMargin;
     
-    [self updateViewWithFrame:CGRectMake(_currentX, _currentY, theWidth, theHeight) andScale:_scale];
-}
-
-- (void)updateViewWithFrame:(CGRect)frame andScale:(CGFloat)scale {
-    
     if(_tiledView) {
         _oldView = _tiledView;
     }
     
-    _tiledView = [[MJPPdfView alloc] initWithFrame:frame andScale:scale];
+    _tiledView = [[MJPPdfView alloc] initWithFrame:CGRectMake(_currentX, _currentY, theWidth, theHeight) andScale:_scale];
     _tiledView.pdfPage = _page;
     [self addSubview:_tiledView];
-    [self sendSubviewToBack:_tiledView];
     
     [_oldView removeFromSuperview];
     _oldView = nil;
@@ -91,27 +82,29 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
 
 #pragma mark - Scroll View
 
+- (void)resetZoom {
+    [self zoomToRect:self.bounds animated:NO];
+    [self setContentOffset:CGPointZero animated:NO];
+    self.contentSize = CGSizeZero;
+}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return _tiledView;
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
-    self.stopUpdate = YES;
+    _tiledView.zoomed = YES;
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
-    NSLog(@"scrollViewDidEndZooming");
-    if(self.zoomScale == 1.0) {
-        self.stopUpdate = NO;
+    CGSize contentSize = scrollView.contentSize;
+    contentSize.width += _currentX * 2;
+    contentSize.height += _currentY * 2;
+    scrollView.contentSize = contentSize;
+    if(scale > 1.0) {
+        [_tiledView drawTiledPDFPageAtScale:_scale];
     } else {
-        NSLog(@"SCALE: %.2f", scale);
-        NSLog(@"FRAME: %@", NSStringFromCGRect(_tiledView.frame));
-        NSLog(@"BEFORE: %@", NSStringFromCGSize(scrollView.contentSize));
-        CGSize contentSize = scrollView.contentSize;
-        contentSize.width += _currentX * 2;
-        contentSize.height += _currentY * 2;
-        scrollView.contentSize = contentSize;
-        NSLog(@"AFTER: %@", NSStringFromCGSize(scrollView.contentSize));
+        [_tiledView removeTiledPDFPage];
     }
 }
 
@@ -119,7 +112,7 @@ static const CGFloat MJPPdfViewerMargin = 20.0;
 
 - (void)setPage:(CGPDFPageRef)page {
     _page = page;
-    //[self updateView];
+    [self updateView];
 }
 
 - (void)setStopUpdate:(BOOL)stopUpdate {

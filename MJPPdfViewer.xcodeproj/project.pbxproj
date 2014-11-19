@@ -20,6 +20,7 @@
 		4A816D521A1A10FE007E57B3 /* A4-portrait.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */; };
 		4A816D531A1A10FE007E57B3 /* square.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D501A1A10FE007E57B3 /* square.pdf */; };
 		4A816D551A1A5DF4007E57B3 /* real.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D541A1A5DF4007E57B3 /* real.pdf */; };
+		4AE762851A1B921500CDBA30 /* MJPPdfTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE762841A1B921500CDBA30 /* MJPPdfTiledView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "A4-portrait.pdf"; path = "PDFs/A4-portrait.pdf"; sourceTree = "<group>"; };
 		4A816D501A1A10FE007E57B3 /* square.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = square.pdf; path = PDFs/square.pdf; sourceTree = "<group>"; };
 		4A816D541A1A5DF4007E57B3 /* real.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = real.pdf; path = PDFs/real.pdf; sourceTree = "<group>"; };
+		4AE762831A1B921500CDBA30 /* MJPPdfTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPPdfTiledView.h; path = Source/MJPPdfTiledView.h; sourceTree = SOURCE_ROOT; };
+		4AE762841A1B921500CDBA30 /* MJPPdfTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPPdfTiledView.m; path = Source/MJPPdfTiledView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				4A816D451A1A0CF3007E57B3 /* MJPPdfPage.m */,
 				4A816D461A1A0CF3007E57B3 /* MJPPdfView.h */,
 				4A816D471A1A0CF3007E57B3 /* MJPPdfView.m */,
+				4AE762831A1B921500CDBA30 /* MJPPdfTiledView.h */,
+				4AE762841A1B921500CDBA30 /* MJPPdfTiledView.m */,
 			);
 			name = MJPPdfViewer;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A816D261A1A0A01007E57B3 /* ViewController.m in Sources */,
+				4AE762851A1B921500CDBA30 /* MJPPdfTiledView.m in Sources */,
 				4A816D4A1A1A0CF3007E57B3 /* MJPPdfPage.m in Sources */,
 				4A816D231A1A0A01007E57B3 /* AppDelegate.m in Sources */,
 				4A816D4B1A1A0CF3007E57B3 /* MJPPdfView.m in Sources */,

@@ -7,13 +7,15 @@
 //
 
 #import "MJPPdfView.h"
+#import "MJPPdfTiledView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface MJPPdfView ()
 
 @property (assign, nonatomic) CGFloat scale;
 @property (strong, nonatomic) UIImage *pageImage;
-@property (strong, nonatomic) UIImageView *pageView;
+@property (strong, nonatomic) CALayer *imageLayer;
+@property (strong, nonatomic) MJPPdfTiledView *tiledLayer;
 
 @end
 
@@ -24,25 +26,22 @@
 - (id)initWithFrame:(CGRect)frame andScale:(CGFloat)scale {
     self = [super initWithFrame:frame];
     if (self) {
+        
         _scale = scale;
-        _pageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _pageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _pageView.backgroundColor = [UIColor yellowColor];
-        _pageView.contentMode = UIViewContentModeScaleToFill;
-        [self addSubview:_pageView];
-        //self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-        //self.layer.borderWidth = 0.5;
+        
+        _imageLayer = [CALayer new];
+        _imageLayer.frame = self.bounds;
+        [self.layer addSublayer:_imageLayer];
     }
     return self;
 }
 
-- (void)drawPageNow {
+- (void)drawImageFromPage {
     
     __weak typeof(self) weakSelf = self;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        
-        NSLog(@"HIT drawPageNow: %@", _pdfPage);
+    
         CGFloat scale = [UIScreen mainScreen].scale;
         CGRect frame = CGRectMake(0.0, 0.0, self.frame.size.width * scale, self.frame.size.height * scale);
         UIGraphicsBeginImageContext(frame.size);
@@ -60,10 +59,7 @@
         UIGraphicsEndImageContext();
         
         dispatch_async(dispatch_get_main_queue(), ^{
-        
-            NSLog(@"%@", image);
-            weakSelf.pageView.image = image;
-            
+            weakSelf.imageLayer.contents = (__bridge id)(image.CGImage);
         });
     });
 }
@@ -72,6 +68,19 @@
     if(self.pdfPage != NULL) {
         CGPDFPageRelease(self.pdfPage);
     }
+    [_imageLayer removeFromSuperlayer];
+}
+
+- (void)drawTiledPDFPageAtScale:(CGFloat)scale {
+    if(!_tiledLayer) {
+        _tiledLayer = [[MJPPdfTiledView alloc] initWithFrame:self.bounds page:self.pdfPage scale:scale];
+        [self addSubview:_tiledLayer];
+    }
+}
+
+- (void)removeTiledPDFPage {
+    [_tiledLayer removeFromSuperview];
+    _tiledLayer = nil;
 }
 
 #pragma mark - Setters
@@ -82,7 +91,7 @@
     }
     if(pdfPage != NULL) {
         _pdfPage = CGPDFPageRetain(pdfPage);
-        [self drawPageNow];
+        [self drawImageFromPage];
     }
 }
 

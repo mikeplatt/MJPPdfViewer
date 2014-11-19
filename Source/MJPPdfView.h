@@ -13,6 +13,10 @@
 
 @property (assign, nonatomic) CGPDFPageRef pdfPage;
 @property (assign, nonatomic) NSInteger pageNumber;
+@property (assign, nonatomic, getter=isZoomed) BOOL zoomed;
+
 - (id)initWithFrame:(CGRect)frame andScale:(CGFloat)scale;
+- (void)drawTiledPDFPageAtScale:(CGFloat)scale;
+- (void)removeTiledPDFPage;
 
 @end
