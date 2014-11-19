@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		4AD529041A1CD45400E32999 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4AD529071A1CD45400E32999 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				4AD529081A1CD47100E32999 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4A816D201A1A0A01007E57B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D1F1A1A0A01007E57B3 /* main.m */; };
 		4A816D231A1A0A01007E57B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A816D221A1A0A01007E57B3 /* AppDelegate.m */; };
@@ -156,6 +170,9 @@
 					4A816D191A1A0A01007E57B3 = {
 						CreatedOnToolsVersion = 6.1;
 					};
+					4AD529041A1CD45400E32999 = {
+						CreatedOnToolsVersion = 6.1;
+					};
 				};
 			};
 			buildConfigurationList = 4A816D151A1A0A01007E57B3 /* Build configuration list for PBXProject "MJPPdfViewer" */;
@@ -172,6 +189,7 @@
 			projectRoot = "";
 			targets = (
 				4A816D191A1A0A01007E57B3 /* MJPPdfViewer */,
+				4AD529041A1CD45400E32999 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +209,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AD529081A1CD47100E32999 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"MJPPdfViewer\" \\\n--project-company \"RABFAP Limited\" \\\n--company-id \"com.rabfap\" \\\n--docset-atom-filename \"MJPPdfViewer.atom\" \\\n--docset-feed-url \"https://github.com/mikeplatt/MJPPdfViewer.git/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"https://github.com/mikeplatt/MJPPdfViewer.git/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"https://github.com/mikeplatt/MJPPdfViewer.git\" \\\n--output \"~/help\" \\\n--publish-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--ignore \"ViewController.h\" \\\n--ignore \"MJPPdfViewer\" \\\n--ignore \"*.m\" \\\n--index-desc \"${PROJECT_DIR}/INDEX.md\" \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A816D161A1A0A01007E57B3 /* Sources */ = {
@@ -327,6 +361,20 @@
 			};
 			name = Release;
 		};
+		4AD529051A1CD45400E32999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4AD529061A1CD45400E32999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -347,6 +395,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4AD529071A1CD45400E32999 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AD529051A1CD45400E32999 /* Debug */,
+				4AD529061A1CD45400E32999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

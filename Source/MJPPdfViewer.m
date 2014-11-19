@@ -21,7 +21,7 @@
 
 @implementation MJPPdfViewer
 
-@synthesize path = _path;
+@synthesize fileName = _fileName;
 @synthesize page = _page;
 @synthesize showDoneButton = _showDoneButton;
 
@@ -159,10 +159,10 @@
 
 #pragma mark - Setters
 
-- (void)setPath:(NSString *)path {
-    _path = path;
-    NSString *fileName = [path stringByDeletingPathExtension];
-    NSURL *URL = [[NSBundle mainBundle] URLForResource:fileName withExtension:@"pdf"];
+- (void)setFileName:(NSString *)fileName {
+    _fileName = fileName;
+    NSString *withoutExtention = [fileName stringByDeletingPathExtension];
+    NSURL *URL = [[NSBundle mainBundle] URLForResource:withoutExtention withExtension:@"pdf"];
     _pdf = CGPDFDocumentCreateWithURL( (__bridge CFURLRef) URL );
     _numberOfPages = CGPDFDocumentGetNumberOfPages( _pdf );
     _allPages = nil;

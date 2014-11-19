@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  <#Description#>
+ */
+
 @interface MJPPdfViewer : UIViewController <UIScrollViewDelegate>
 
-// PDF
-@property (strong, nonatomic) NSString *path;
+@property (strong, nonatomic) NSString *fileName;
 @property (assign, nonatomic) NSInteger page;
-
-// styling
 @property (assign, nonatomic) CGFloat margin;
 @property (assign, nonatomic) BOOL showDoneButton;
 

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Documentation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>MJPPdfViewer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>4A816D321A1A0A02007E57B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AD529041A1CD45400E32999</key>
 		<dict>
 			<key>primary</key>
 			<true/>

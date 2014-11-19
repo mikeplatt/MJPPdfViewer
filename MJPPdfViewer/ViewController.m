@@ -29,7 +29,7 @@
     if([segue.identifier isEqualToString:@"showLandscape"]) {
         UINavigationController *navigationController = segue.destinationViewController;
         MJPPdfViewer *pdfViewer = (MJPPdfViewer *)navigationController.childViewControllers[0];
-        pdfViewer.path = @"A4-landscape.pdf";
+        pdfViewer.fileName = @"A4-landscape.pdf";
         pdfViewer.page = 1;
     }
 }
@@ -37,22 +37,22 @@
 - (IBAction)showPDF:(UIButton *)sender {
     
     // programmatic instantiation
-    NSString *path;
+    NSString *fileName;
     switch (sender.tag) {
         case 2:
-            path = @"A4-portrait.pdf";
+            fileName = @"A4-portrait.pdf";
             break;
         case 3:
-            path = @"square.pdf";
+            fileName = @"square.pdf";
             break;
         default:
             break;
     }
     
     MJPPdfViewer *pdfViewer = [[MJPPdfViewer alloc] init];
-    pdfViewer.path = path;
+    pdfViewer.fileName = fileName;
     pdfViewer.page = sender.tag;
-    pdfViewer.margin = 100.0;
+    pdfViewer.margin = 10.0;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pdfViewer];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
