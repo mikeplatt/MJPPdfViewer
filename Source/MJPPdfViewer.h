@@ -10,9 +10,12 @@
 
 @interface MJPPdfViewer : UIViewController <UIScrollViewDelegate>
 
+// PDF
 @property (strong, nonatomic) NSString *path;
 @property (assign, nonatomic) NSInteger page;
 
-- (instancetype)initWithPath:(NSString *)path andPage:(NSInteger)page;
+// styling
+@property (assign, nonatomic) CGFloat margin;
+@property (assign, nonatomic) BOOL showDoneButton;
 
 @end

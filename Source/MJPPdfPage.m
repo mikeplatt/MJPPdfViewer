@@ -9,8 +9,6 @@
 #import "MJPPdfPage.h"
 #import "MJPPdfView.h"
 
-static const CGFloat MJPPdfViewerMargin = 10.0;
-
 @interface MJPPdfPage ()
 
 @property (strong, nonatomic) MJPPdfView *tiledView;
@@ -31,9 +29,8 @@ static const CGFloat MJPPdfViewerMargin = 10.0;
 @implementation MJPPdfPage
 
 @synthesize page = _page;
-@synthesize stopUpdate = _stopUpdate;
 
-- (instancetype)initWithFrame:(CGRect)frame andPage:(CGPDFPageRef)page andPageNumber:(NSInteger)pageNumber {
+- (instancetype)initWithFrame:(CGRect)frame page:(CGPDFPageRef)page pageNumber:(NSInteger)pageNumber margin:(CGFloat)margin {
     self = [super initWithFrame:frame];
     if(self) {
         self.delegate = self;
@@ -41,6 +38,7 @@ static const CGFloat MJPPdfViewerMargin = 10.0;
         self.showsVerticalScrollIndicator = NO;
         self.minimumZoomScale = 1.0;
         self.maximumZoomScale = 5.0;
+        self.margin = margin;
         self.pageNumber = pageNumber;
         self.page = page;
     }
@@ -55,8 +53,8 @@ static const CGFloat MJPPdfViewerMargin = 10.0;
     
     CGRect pageRect = CGPDFPageGetBoxRect(_page, kCGPDFMediaBox);
     
-    CGFloat frameWidth = self.frame.size.width - (2 * MJPPdfViewerMargin);
-    CGFloat frameHeight = self.frame.size.height - (2 * MJPPdfViewerMargin);
+    CGFloat frameWidth = self.frame.size.width - (2 * self.margin);
+    CGFloat frameHeight = self.frame.size.height - (2 * self.margin);
     
     CGFloat xScale = frameWidth / pageRect.size.width;
     CGFloat yScale = frameHeight / pageRect.size.height;
@@ -65,8 +63,8 @@ static const CGFloat MJPPdfViewerMargin = 10.0;
     CGFloat theWidth = (yScale > xScale) ? frameWidth : (pageRect.size.width * _scale);
     CGFloat theHeight = (yScale > xScale) ? (pageRect.size.height * _scale) : frameHeight;
     
-    _currentX = (yScale > xScale) ? MJPPdfViewerMargin : (self.frame.size.width - theWidth) / 2;
-    _currentY = (yScale > xScale) ? (self.frame.size.height - theHeight) / 2 : MJPPdfViewerMargin;
+    _currentX = (yScale > xScale) ? self.margin : (self.frame.size.width - theWidth) / 2;
+    _currentY = (yScale > xScale) ? (self.frame.size.height - theHeight) / 2 : self.margin;
     
     if(_tiledView) {
         _oldView = _tiledView;
@@ -113,10 +111,6 @@ static const CGFloat MJPPdfViewerMargin = 10.0;
 - (void)setPage:(CGPDFPageRef)page {
     _page = page;
     [self updateView];
-}
-
-- (void)setStopUpdate:(BOOL)stopUpdate {
-    _stopUpdate = stopUpdate;
 }
 
 @end

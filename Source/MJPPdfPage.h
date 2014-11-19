@@ -12,10 +12,10 @@
 @interface MJPPdfPage : UIScrollView <UIScrollViewDelegate>
 
 @property (assign, nonatomic) CGPDFPageRef page;
-@property (assign, nonatomic) BOOL stopUpdate;
 @property (assign, nonatomic) NSInteger pageNumber;
+@property (assign, nonatomic) CGFloat margin;
 
-- (instancetype)initWithFrame:(CGRect)frame andPage:(CGPDFPageRef)page andPageNumber:(NSInteger)pageNumber;
+- (instancetype)initWithFrame:(CGRect)frame page:(CGPDFPageRef)page pageNumber:(NSInteger)pageNumber margin:(CGFloat)margin;
 - (void)updateView;
 - (void)resetZoom;
 

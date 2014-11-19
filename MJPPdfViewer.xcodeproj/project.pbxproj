@@ -19,7 +19,6 @@
 		4A816D511A1A10FE007E57B3 /* A4-landscape.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */; };
 		4A816D521A1A10FE007E57B3 /* A4-portrait.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */; };
 		4A816D531A1A10FE007E57B3 /* square.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D501A1A10FE007E57B3 /* square.pdf */; };
-		4A816D551A1A5DF4007E57B3 /* real.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A816D541A1A5DF4007E57B3 /* real.pdf */; };
 		4AE762851A1B921500CDBA30 /* MJPPdfTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE762841A1B921500CDBA30 /* MJPPdfTiledView.m */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "A4-landscape.pdf"; path = "PDFs/A4-landscape.pdf"; sourceTree = "<group>"; };
 		4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "A4-portrait.pdf"; path = "PDFs/A4-portrait.pdf"; sourceTree = "<group>"; };
 		4A816D501A1A10FE007E57B3 /* square.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = square.pdf; path = PDFs/square.pdf; sourceTree = "<group>"; };
-		4A816D541A1A5DF4007E57B3 /* real.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = real.pdf; path = PDFs/real.pdf; sourceTree = "<group>"; };
 		4AE762831A1B921500CDBA30 /* MJPPdfTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPPdfTiledView.h; path = Source/MJPPdfTiledView.h; sourceTree = SOURCE_ROOT; };
 		4AE762841A1B921500CDBA30 /* MJPPdfTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPPdfTiledView.m; path = Source/MJPPdfTiledView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -119,7 +117,6 @@
 		4A816D4D1A1A0E0F007E57B3 /* PDFs */ = {
 			isa = PBXGroup;
 			children = (
-				4A816D541A1A5DF4007E57B3 /* real.pdf */,
 				4A816D4E1A1A10FE007E57B3 /* A4-landscape.pdf */,
 				4A816D4F1A1A10FE007E57B3 /* A4-portrait.pdf */,
 				4A816D501A1A10FE007E57B3 /* square.pdf */,
@@ -184,7 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A816D551A1A5DF4007E57B3 /* real.pdf in Resources */,
 				4A816D291A1A0A01007E57B3 /* Main.storyboard in Resources */,
 				4A816D531A1A10FE007E57B3 /* square.pdf in Resources */,
 				4A816D511A1A10FE007E57B3 /* A4-landscape.pdf in Resources */,

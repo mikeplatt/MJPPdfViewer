@@ -15,28 +15,33 @@
 @property (assign, nonatomic) CGPDFDocumentRef pdf;
 @property (assign, nonatomic) NSInteger numberOfPages;
 @property (strong, nonatomic) NSMutableArray *allPages;
+@property (assign, nonatomic) NSInteger internalPage;
 
 @end
 
 @implementation MJPPdfViewer
 
 @synthesize path = _path;
+@synthesize page = _page;
+@synthesize showDoneButton = _showDoneButton;
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithPath:(NSString *)path andPage:(NSInteger)page {
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self commonInit];
+}
+
+- (instancetype)init {
     self = [super init];
     if(self) {
-        _page = page - 1;
-        self.path = path;
         [self commonInit];
     }
     return self;
 }
 
 - (void)commonInit {
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed:)];
+    // setup
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _scrollView.pagingEnabled = YES;
@@ -46,6 +51,11 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
+    
+    // defaults
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.margin = 20.0;
+    self.showDoneButton = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -59,7 +69,7 @@
     if(_currentWidth != scrollWidth) {
         _currentWidth = scrollWidth;
         _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * _numberOfPages, 0.0);
-        _scrollView.contentOffset = CGPointMake(_scrollView.frame.size.width * _page, _scrollView.contentOffset.y);
+        _scrollView.contentOffset = CGPointMake(_scrollView.frame.size.width * _internalPage, _scrollView.contentOffset.y);
         for(UIView *subView in _scrollView.subviews) {
             if([subView isKindOfClass:[MJPPdfPage class]]) {
                 MJPPdfPage *pageView = (MJPPdfPage *)subView;
@@ -83,8 +93,8 @@
 
 - (void)drawPagesNow {
     
-    NSInteger firstPage = _page - 1;
-    NSInteger lastPage = _page + 1;
+    NSInteger firstPage = _internalPage - 1;
+    NSInteger lastPage = _internalPage + 1;
     
     for (NSInteger i = 0; i < firstPage; i++) {
         [self purgePage:i];
@@ -108,9 +118,11 @@
         CGFloat theY = 0.0;
         CGFloat theWidth = _scrollView.frame.size.width;
         CGFloat theHeight = _scrollView.frame.size.height + _scrollView.contentOffset.y;
-        MJPPdfPage *newPageView = [[MJPPdfPage alloc] initWithFrame:CGRectMake(theX, theY, theWidth, theHeight) andPage:pageRef andPageNumber:page];
+        MJPPdfPage *newPageView = [[MJPPdfPage alloc] initWithFrame:CGRectMake(theX, theY, theWidth, theHeight) page:pageRef pageNumber:page margin:self.margin];
         [_scrollView addSubview:newPageView];
         [_allPages replaceObjectAtIndex:page withObject:newPageView];
+    } else {
+        [pageView resetZoom];
     }
 }
 
@@ -132,8 +144,8 @@
     if(_scrollView.frame.size.width == _currentWidth) {
         CGFloat position = (scrollView.contentOffset.x / _scrollView.frame.size.width);
         NSInteger newPage = round(position);
-        if(newPage != _page) {
-            _page = newPage;
+        if(newPage != _internalPage) {
+            _internalPage = newPage;
             [self drawPagesNow];
         }
     }
@@ -157,6 +169,20 @@
     _allPages = [NSMutableArray new];
     for(int i = 0; i < _numberOfPages; i++) {
         [_allPages addObject:[NSNull null]];
+    }
+}
+
+- (void)setPage:(NSInteger)page {
+    _page = page;
+    _internalPage = page - 1;
+}
+
+- (void)setShowDoneButton:(BOOL)showDoneButton {
+    _showDoneButton = showDoneButton;
+    if(showDoneButton) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed:)];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
     }
 }
 
