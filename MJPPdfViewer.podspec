@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name              = 'MJPPdfViewer'
-    s.version           = '0.0.1'
+    s.version           = '0.0.2'
     s.summary           = 'iOS PDF Viewer'
     s.homepage          = 'https://github.com/mikeplatt/MJPPdfViewer'
     s.license           = {
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
         :file => 'LICENSE'
     }
     s.author            = {
-        'mikeplatt' => 'mikeplatt@inboox.com'
+        'mikeplatt' => 'mikeplatt@inbox.com'
     }
     s.source            = {
         :git => 'https://github.com/mikeplatt/MJPPdfViewer.git',
